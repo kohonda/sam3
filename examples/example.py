@@ -174,6 +174,7 @@ def apply_mask_nms(
 # === EDIT ME ===
 prompts = [
     "ground",
+    "truck",
 ]
 
 colors = [(255, 0, 0), (0, 255, 0)]
