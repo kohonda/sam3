@@ -63,36 +63,22 @@ This breakthrough is driven by an innovative data engine that has automatically 
 - PyTorch 2.7 or higher
 - CUDA-compatible GPU with CUDA 12.6 or higher
 
-1. **Create a new Conda environment:**
-
-```bash
-conda create -n sam3 python=3.12
-conda deactivate
-conda activate sam3
-```
-
-2. **Install PyTorch with CUDA support:**
-
-```bash
-pip install torch==2.7.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
-```
-
-3. **Clone the repository and install the package:**
+1. **Clone the repository and install the package:**
 
 ```bash
 git clone https://github.com/facebookresearch/sam3.git
 cd sam3
-pip install -e .
+uv sync
 ```
 
-4. **Install additional dependencies for example notebooks or development:**
+2. **Install additional dependencies for example notebooks or development:**
 
 ```bash
 # For running example notebooks
-pip install -e ".[notebooks]"
+uv sync --extra notebooks
 
 # For development
-pip install -e ".[train,dev]"
+uv sync --extra train,dev
 ```
 
 ## Getting Started
@@ -104,6 +90,14 @@ the following [steps](https://huggingface.co/docs/huggingface_hub/en/quick-start
 (e.g. `hf auth login` after generating an access token.)
 
 ### Basic Usage
+
+Please run `examples/example.py` for a minimal example code as:
+
+```bash
+uv run examples/example.py
+```
+
+Or you can use the following code snippet to prompt SAM 3 with text prompts
 
 ```python
 import torch
